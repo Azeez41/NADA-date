@@ -1,24 +1,32 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "NADA.EXE — Retro 8-Bit Date Quest" },
+      {
+        name: "description",
+        content:
+          "A goofy 90s-style pixel game where the YES button grows, the NO button shrinks, and pixel cats judge every decision.",
+      },
+      { property: "og:title", content: "NADA.EXE — Retro 8-Bit Date Quest" },
+      {
+        property: "og:description",
+        content: "Press START, dodge the shrinking NO button, and schedule the perfect pixel date.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <iframe
+      src="/game/index.html"
+      title="NADA.EXE retro 8-bit date quest"
+      style={{ position: "fixed", inset: 0, width: "100%", height: "100%", border: "none" }}
+    />
   );
 }
