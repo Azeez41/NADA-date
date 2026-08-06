@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>NADA.EXE</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="bg"></div>
+    <div id="clouds"></div>
+    <div id="stars"></div>
+    <div id="cats"></div>
+    <div id="fx"></div>
+    <div id="scan"></div>
+    <div id="flash"></div>
+    <div id="fade"></div>
+
+    <button id="mute" type="button">SOUND: ON</button>
+
+    <main id="game">
+      <!-- TITLE -->
+      <section class="screen on" id="s-title">
+        <h1>NADA.EXE</h1>
+        <h2 class="mt blink">PRESS START</h2>
+        <div class="row"><button class="btn pink huge blink" id="startBtn">START</button></div>
+        <p class="small mt2">(C) 1994 ABDULAZIZ SOFT</p>
+      </section>
+
+      <!-- MISSION 01 -->
+      <section class="screen" id="s-m1">
+        <div class="panel">
+          <h2 id="m1title">MISSION 01</h2>
+          <p class="mt" id="m1obj">OBJECTIVE: CONVINCE NADA TO GO ON A DATE.</p>
+          <p class="mt2" id="m1ask" style="visibility: hidden">
+            WILL YOU GO ON A DATE WITH ME?
+          </p>
+          <div class="row" id="m1btns" style="visibility: hidden">
+            <button class="btn pink" id="yesBtn">YES</button>
+            <button class="btn lav" id="noBtn">NO</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- WIN -->
+      <section class="screen" id="s-win">
+        <h1>MISSION<br />COMPLETE</h1>
+        <div class="row"><button class="btn cyan" id="winNext">CONTINUE</button></div>
+      </section>
+
+      <!-- DATE -->
+      <section class="screen" id="s-date">
+        <div class="panel">
+          <h2>SELECT DATE</h2>
+          <p class="small mt" id="calMonth"></p>
+          <div class="cal" id="cal"></div>
+          <div class="row">
+            <button class="btn cyan" id="dateNext" style="display: none">CONTINUE</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ACTIVITY -->
+      <section class="screen" id="s-act">
+        <div class="panel">
+          <h2>INVENTORY</h2>
+          <p class="small">SELECT ONE QUEST ITEM</p>
+          <div class="grid" id="acts"></div>
+          <div class="row">
+            <button class="btn cyan" id="actNext" style="display: none">CONTINUE</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- TIME -->
+      <section class="screen" id="s-time">
+        <div class="panel">
+          <h2>SELECT TIME</h2>
+          <div class="menu" id="times"></div>
+          <div class="row">
+            <button class="btn cyan" id="timeNext" style="display: none">CONTINUE</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONFIRM -->
+      <section class="screen" id="s-quest">
+        <div class="panel">
+          <h2>QUEST ACCEPTED</h2>
+          <div class="quest mt" id="questLog"></div>
+          <div class="row"><button class="btn pink huge" id="confirmBtn">CONFIRM</button></div>
+        </div>
+      </section>
+
+      <!-- ENDING -->
+      <section class="screen" id="s-end">
+        <h2 id="endText"></h2>
+      </section>
+    </main>
+
+    <div id="credits"><div id="creditRoll"></div></div>
+
+    <script src="./sprites.js"></script>
+    <script src="./game.js"></script>
+  </body>
+</html>
