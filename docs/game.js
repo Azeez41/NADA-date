@@ -423,8 +423,8 @@
 $("#confirmBtn").addEventListener("click", async () => {
   try {
     await emailjs.send(
-      "YOUR_SERVICE_ID",
-      "YOUR_TEMPLATE_ID",
+      "service_yl74r1x",
+      "template_gknz5qe",
       {
         date: state.date,
         time: state.time,
