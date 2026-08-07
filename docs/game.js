@@ -419,10 +419,37 @@
   });
 
   /* ENDING */
-  $("#confirmBtn").addEventListener("click", () => {
-    Sfx.save();
-    fireworks(3);
-    $("#fade").classList.add("on");
+  /* ENDING */
+$("#confirmBtn").addEventListener("click", async () => {
+  try {
+    await emailjs.send(
+      "YOUR_SERVICE_ID",
+      "YOUR_TEMPLATE_ID",
+      {
+        date: state.date,
+        time: state.time,
+        activity: state.activity,
+        confirmed_at: new Date().toLocaleString(),
+      }
+    );
+
+    console.log("Mission report sent successfully.");
+  } catch (error) {
+    console.error("EmailJS error:", error);
+
+    const retry = confirm(
+      "CONNECTION LOST\n\nMission report could not be delivered.\n\nPress OK to retry or Cancel to continue anyway."
+    );
+
+    if (retry) {
+      $("#confirmBtn").click();
+      return;
+    }
+  }
+
+  Sfx.save();
+  fireworks(3);
+  $("#fade").classList.add("on");
     setTimeout(() => {
       show("#s-end");
       $("#fade").classList.remove("on");
